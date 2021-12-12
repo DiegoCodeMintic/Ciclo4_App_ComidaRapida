@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#ff423e</color>
+    <color name="purple_500">#ff423e</color>
+    <color name="purple_700">#ff423e</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
+
+<!--    .color1 {color: #ff423e;}-->
+<!--    .color2 {color: #ff9126;}-->
+<!--    .color3 {color: #ffd554;}-->
+<!--    .color4 {color: #ffffa0;}-->
+<!--    .color5 {color: #ffffe1;}-->

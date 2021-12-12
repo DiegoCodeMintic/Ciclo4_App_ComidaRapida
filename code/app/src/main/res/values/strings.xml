@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">MaxiFood</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Usuario 141231</string>
+    <string name="nav_header_subtitle">correo@correo.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Productos</string>
+    <string name="menu_favoritos">Favoritos</string>
+    <string name="menu_sucursales">Sucursales</string>
+    <string name="menu_pedidos">Pedidos</string>
+    <string name="menu_perfil">Mi Perfil</string>
+    <string name="menu_contacto">Contacto</string>
+    <string name="menu_acerca">Acerca de</string>
+</resources>

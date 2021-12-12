@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.diego.bernal.ciclo4_app_v1.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.diego.bernal.ciclo4_app_v1.ui.gallery.GalleryFragment"
+        android:label="@string/menu_contacto"
+        tools:layout="@layout/fragment_contacto" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.diego.bernal.ciclo4_app_v1.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_acerca"
+        tools:layout="@layout/fragment_slideshow" />
+    <activity
+        android:id="@+id/nav_favorito"
+        android:name="com.diego.bernal.ciclo4_app_v1.Activity_Favoritos"
+        android:label="activity_favoritos"
+        tools:layout="@layout/activity_favoritos" />
+    <activity
+        android:id="@+id/nav_sucursales"
+        android:name="com.diego.bernal.ciclo4_app_v1.Activity_Sucursales"
+        android:label="activity_sucursales"
+        tools:layout="@layout/activity_sucursales" />
+    <activity
+        android:id="@+id/nav_pedidos"
+        android:name="com.diego.bernal.ciclo4_app_v1.Activity_Pedidos"
+        android:label="activity_pedidos"
+        tools:layout="@layout/activity_pedidos" />
+    <activity
+        android:id="@+id/nav_perfil"
+        android:name="com.diego.bernal.ciclo4_app_v1.Activity_Perfil"
+        android:label="activity_perfil"
+        tools:layout="@layout/activity_perfil" />
+
+</navigation>
