@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -12,9 +13,20 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.viewbinding.ViewBinding;
 
 import com.diego.bernal.ciclo4_app_v1.R;
 import com.diego.bernal.ciclo4_app_v1.databinding.FragmentHomeBinding;
+
+import org.imaginativeworld.whynotimagecarousel.ImageCarousel;
+import org.imaginativeworld.whynotimagecarousel.listener.CarouselListener;
+import org.imaginativeworld.whynotimagecarousel.model.CarouselItem;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
@@ -27,12 +39,54 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        binding.imageView.setOnClickListener(this);
+
         binding.imageView2.setOnClickListener(this);
         binding.imageView3.setOnClickListener(this);
         binding.imageView4.setOnClickListener(this);
 
 
+        ImageCarousel carousel = binding.carousel;
+        carousel.registerLifecycle(getLifecycle());
+        List<CarouselItem> list = new ArrayList<>();
+
+        list.add(new CarouselItem(R.drawable.comida1));
+        list.add(new CarouselItem(R.drawable.comida2));
+        list.add(new CarouselItem(R.drawable.comida3));
+        list.add(new CarouselItem(R.drawable.comida4));
+        list.add(new CarouselItem(R.drawable.comida5));
+        list.add(new CarouselItem(R.drawable.comida6));
+        list.add(new CarouselItem(R.drawable.comida7));
+        list.add(new CarouselItem(R.drawable.comida8));
+
+        carousel.setCarouselListener(new CarouselListener() {
+            @Nullable
+            @Override
+            public ViewBinding onCreateViewHolder(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup) {
+                return null;
+            }
+
+            @Override
+            public void onBindViewHolder(@NonNull ViewBinding viewBinding, @NonNull CarouselItem carouselItem, int i) {
+
+            }
+
+
+
+
+
+            @Override
+            public void onLongClick(int position, @NotNull CarouselItem dataObject) {
+                // ...
+            }
+
+            @Override
+            public void onClick(int position, @NotNull CarouselItem carouselItem) {
+                Toast.makeText(getContext(),"Lista de ima",Toast.LENGTH_LONG).show();
+            }
+        });
+
+
+        carousel.setData(list);
         return root;
     }
 

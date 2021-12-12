@@ -12,7 +12,7 @@
         android:layout_height="117dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="60dp"
-        android:text="Version 1.0:\n-Logo App\n-Barra de Tareas con Menu\n-Layout con imagenes botones y lista"
+        android:text="Version 1.0:\n-Logo App\n-Barra de Tareas con Menu\n-Layout con imagenes botones y lista\n\nVersion 2.0:\n-Uso de fragments\n-transiciones entre activities\n-Implementación de pantallas principales "
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="32dp"
-        android:text="Version Actual: 1.0"
+        android:text="Version Actual: 2.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
