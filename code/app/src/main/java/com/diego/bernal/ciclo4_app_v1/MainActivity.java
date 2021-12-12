@@ -63,5 +63,7 @@ public class MainActivity extends AppCompatActivity {
 }
 
 /*
-* 
+* codigo fuente:
+* https://github.com/DiegoCodeMintic/Ciclo4_App_ComidaRapida.git
+* branch: Reto1
 * */
