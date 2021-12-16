@@ -4,29 +4,24 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.viewbinding.ViewBinding;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.diego.bernal.ciclo4_app_v1.Modelo.Color;
+import com.diego.bernal.ciclo4_app_v1.Adaptador.MaterialPaletteAdapter;
 import com.diego.bernal.ciclo4_app_v1.R;
+import com.diego.bernal.ciclo4_app_v1.Adaptador.RecyclerViewOnItemClickListener;
 import com.diego.bernal.ciclo4_app_v1.databinding.FragmentHomeBinding;
 
-import org.imaginativeworld.whynotimagecarousel.ImageCarousel;
-import org.imaginativeworld.whynotimagecarousel.listener.CarouselListener;
-import org.imaginativeworld.whynotimagecarousel.model.CarouselItem;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
@@ -40,53 +35,52 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         View root = binding.getRoot();
 
 
-        binding.imageView2.setOnClickListener(this);
-        binding.imageView3.setOnClickListener(this);
+
+
         binding.imageView4.setOnClickListener(this);
 
 
-        ImageCarousel carousel = binding.carousel;
-        carousel.registerLifecycle(getLifecycle());
-        List<CarouselItem> list = new ArrayList<>();
 
-        list.add(new CarouselItem(R.drawable.comida1));
-        list.add(new CarouselItem(R.drawable.comida2));
-        list.add(new CarouselItem(R.drawable.comida3));
-        list.add(new CarouselItem(R.drawable.comida4));
-        list.add(new CarouselItem(R.drawable.comida5));
-        list.add(new CarouselItem(R.drawable.comida6));
-        list.add(new CarouselItem(R.drawable.comida7));
-        list.add(new CarouselItem(R.drawable.comida8));
 
-        carousel.setCarouselListener(new CarouselListener() {
-            @Nullable
+
+        //NUEVO
+        RecyclerView recyclerView = binding.recyclerView;
+        final List<Color> colors = buildColors();
+        recyclerView.setAdapter(new MaterialPaletteAdapter(colors, new RecyclerViewOnItemClickListener() {
             @Override
-            public ViewBinding onCreateViewHolder(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup) {
-                return null;
+            public void onClick(View v, int position) {
+                String text = position + " " + colors.get(position).getName();
+                Toast.makeText(getContext(), text, Toast.LENGTH_SHORT).show();
             }
+        }));
+        //VERTICAL
+        //recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        //HORIZONTAL
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext(),((LinearLayoutManager) recyclerView.getLayoutManager()).getOrientation());
+        recyclerView.addItemDecoration(dividerItemDecoration);
+
+        //NUEVO
+
+        //NUEVO
+        RecyclerView recyclerView1 = binding.recyclerView1;
+
+        recyclerView1.setAdapter(new MaterialPaletteAdapter(colors, new RecyclerViewOnItemClickListener() {
             @Override
-            public void onBindViewHolder(@NonNull ViewBinding viewBinding, @NonNull CarouselItem carouselItem, int i) {
-
+            public void onClick(View v, int position) {
+                String text = position + " " + colors.get(position).getName();
+                Toast.makeText(getContext(), text, Toast.LENGTH_SHORT).show();
             }
+        }));
+        //VERTICAL
+        //recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        //HORIZONTAL
+        recyclerView1.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
+        DividerItemDecoration dividerItemDecoration1 = new DividerItemDecoration(getContext(),((LinearLayoutManager) recyclerView1.getLayoutManager()).getOrientation());
+        recyclerView1.addItemDecoration(dividerItemDecoration1);
 
-
-
-
-            @Override
-            public void onLongClick(int position, @NotNull CarouselItem dataObject) {
-                // ...
-            }
-
-            @Override
-            public void onClick(int position, @NotNull CarouselItem carouselItem) {
-                Toast.makeText(getContext(),"Lista de ima",Toast.LENGTH_LONG).show();
-            }
-        });
-
-
-        carousel.setData(list);
         return root;
     }
 
@@ -102,15 +96,32 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             case R.id.imageView:
                 Toast.makeText(getContext(),"Espacio para Carrusel de imagenes",Toast.LENGTH_LONG).show();
                 break;
-            case R.id.imageView2:
-                Toast.makeText(getContext(),"Lista de categorias",Toast.LENGTH_LONG).show();
-                break;
-            case R.id.imageView3:
-                Toast.makeText(getContext(),"Lista de promociones",Toast.LENGTH_LONG).show();
-                break;
+
+
             case R.id.imageView4:
                 Toast.makeText(getContext(),"Lista de Productos",Toast.LENGTH_LONG).show();
                 break;
         }
+    }
+
+
+
+    private void setupRecyclerView() {
+
+
+
+
+
+    }
+
+    private List<Color> buildColors() {
+        List<Color> colors = new ArrayList<>();
+        colors.add(new Color(getString(R.string.blue), "#2196F3"));
+        colors.add(new Color(getString(R.string.blue), "#2196F3"));
+        colors.add(new Color(getString(R.string.blue), "#2196F3"));
+        colors.add(new Color(getString(R.string.blue), "#2196F3"));
+        colors.add(new Color(getString(R.string.blue), "#2196F3"));
+        colors.add(new Color(getString(R.string.blue), "#2196F3"));
+        return colors;
     }
 }
